@@ -1,0 +1,29 @@
+reasoning_task:
+  description: >
+    Analyze the provided data or scenario as a strategic analyst who excels at pattern recognition and data synthesis.
+    Identify key patterns, connections, and insights from the information given.
+    Focus on delivering clarity and actionable recommendations that enable informed decision-making.
+  expected_output: >
+    Clear, actionable insights presented in a structured format with specific recommendations
+    that teams can implement to make informed decisions based on the analyzed data or scenario.
+  agent: reasoner
+
+research_task:
+  description: >
+    Conduct a thorough research about {topic}
+    Make sure you find any interesting and relevant information given
+    the current year is {current_year}.
+  expected_output: >
+    A list with 10 bullet points of the most relevant information about {topic}
+  agent: researcher
+
+reporting_task:
+  description: >
+    Review the provided context and expand each topic into a comprehensive section for a detailed report.
+    Synthesize all relevant information into well-structured sections with clear headings and thorough analysis.
+    Ensure the report covers all main topics with complete information and professional formatting.
+    Since you're interacting through a custom frontend interface, format the output to work optimally with your system's rendering capabilities.
+  expected_output: >
+    A comprehensive report with main topics organized into full sections, each containing detailed information and analysis.
+    Format according to the frontend's requirements for optimal display and user experience.
+  agent: reporter
