@@ -8,14 +8,81 @@ reasoning_task:
     that teams can implement to make informed decisions based on the analyzed data or scenario.
   agent: reasoner
 
-research_task:
+research_consensus_perspective:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Research common opinions or widely accepted views about the user's input `{find_out}`.  
+    Identify supporting arguments and evidence that reinforce these mainstream perspectives.  
+    Ensure findings are relevant and up-to-date, considering the current year is 2025.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    Return an array of findings with a "research" field that includes an array of relevant sources each containing:
+    - supporting_argument: 
+    - url: Direct link to the information source.
+
+    Example Output:
+    [
+      [
+        "supporting_argument": "Formatted concisely and no more than one sentence in length.",
+        "research": [
+          [
+            "title": "Title of the information source",
+            "url": "https://example.com/article",
+          ]
+        ]
+      ]
+    ]
+  agent: reasoner
+  context: [reasoning_task]
+
+research_counterfactual_perspective:
+  description: >
+    Research sources of opposing or alternative perspectives on the user's input `{find_out}`, 
+    which challenge the consensus or commonly accepted beliefs.
+    Explore "what if" scenarios or paths not typically considered and provide thought-provoking counterpoints.  
+    Make sure you find any interesting and relevant information given the current year is 2025.
+  expected_output: >
+    Return an array of findings with a "research" field that includes an array of relevant sources each containing:
+    - supporting_argument: 
+    - url: Direct link to the information source.
+
+    Example Output:
+    [
+      [
+        "supporting_argument": "Formatted concisely and no more than one sentence in length.",
+        "research": [
+          [
+            "title": "Title of the information source",
+            "url": "https://example.com/article",
+          ]
+        ]
+      ]
+    ]
+  agent: reasoner
+  context: [reasoning_task]
+
+research_nuance_perspective:
+  description: >
+    Investigate the subtleties, dependencies, and complexities inherent in the user's input `{find_out}`.  
+    Identify gray areas or less obvious aspects of the input that could provide deeper insights.
+    Make sure you find any interesting and relevant information given the current year is 2025.
+  expected_output: >
+    Return an array of findings with a "research" field that includes an array of relevant sources each containing:
+    - supporting_argument: 
+    - url: Direct link to the information source.
+
+    Example Output:
+    [
+      [
+        "supporting_argument": "Formatted concisely and no more than one sentence in length.",
+        "research": [
+          [
+            "title": "Title of the information source",
+            "url": "https://example.com/article",
+          ]
+        ]
+      ]
+    ]
+  agent: reasoner
+  context: [reasoning_task]
 
 reporting_task:
   description: >
