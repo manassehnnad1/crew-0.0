@@ -69,7 +69,7 @@ const ExpandableInput: React.FC = () => {
             <button
               onClick={handleSubmit}
               className={`
-                absolute right-2 w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center 
+                absolute right-2 w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center cursor-pointer
                 transition-all duration-200 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400
                 ${value.trim() ? 'opacity-100' : 'opacity-70'}
               `}
@@ -77,7 +77,7 @@ const ExpandableInput: React.FC = () => {
             >
               <ArrowUp 
                 className={`
-                  w-5 h-5 text-white transition-transform duration-200
+                  w-5 h-5 text-white transition-transform duration-200 cursor-pointer
                   ${isExpanded ? 'rotate-0' : 'rotate-45 '}
                 `}
               />

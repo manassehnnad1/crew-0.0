@@ -57,23 +57,33 @@ const NavBar: React.FC = () => {
             {/* Navigation Links */}
             <nav 
               className={`
-                space-y-6 transition-all duration-1000 ease-out delay-200
+                space-y-6 transition-all duration-700 ease-out delay-100
                 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
               `}
             >
               <a href="#" className="block text-2xl text-gray-700 hover:text-gray-500 transition-colors font-funnel duration-300">
                 Latest update
               </a>
-              <a href="#" className="block text-2xl text-gray-700 hover:text-gray-500 font-funnel transition-colors duration-300">
+              <a href="https://github.com/manassehnnad1/crew-0.0?tab=readme-ov-file" className="block text-2xl text-gray-700 hover:text-gray-500 font-funnel transition-colors duration-300">
                 About
               </a>
-              <a href="#" className="block text-2xl text-gray-700 hover:text-gray-500 font-funnel transition-colors duration-300">
+              <a href="https://x.com/islathebuilder" className="block text-2xl text-gray-700 hover:text-gray-500 font-funnel transition-colors duration-300">
                 X
               </a>
+              <footer className=" py-80 ">
+        <div className="max-w-4xl mx-auto text-start">
+          <p className="text-gray-600 font-funnel">
+            &copy; {new Date().getFullYear()} Crew. All rights reserved.
+          </p>
+        </div>
+      </footer>
             </nav>
           </div>
+          
         </div>
+        
       </div>
+      
     </>
   );
 };
