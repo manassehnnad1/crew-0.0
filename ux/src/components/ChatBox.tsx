@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 const ExpandableInput: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -69,13 +69,13 @@ const ExpandableInput: React.FC = () => {
             <button
               onClick={handleSubmit}
               className={`
-                absolute right-1 w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center 
+                absolute right-2 w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center 
                 transition-all duration-200 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400
                 ${value.trim() ? 'opacity-100' : 'opacity-70'}
               `}
               disabled={!value.trim()}
             >
-              <ChevronUp 
+              <ArrowUp 
                 className={`
                   w-5 h-5 text-white transition-transform duration-200
                   ${isExpanded ? 'rotate-0' : 'rotate-45 '}
