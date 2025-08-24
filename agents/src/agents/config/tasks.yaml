@@ -1,11 +1,18 @@
 reasoning_task:
   description: >
-    Analyze the provided data or scenario as a strategic analyst who excels at pattern recognition and data synthesis.
-    Identify key patterns, connections, and insights from the information given.
-    Focus on delivering clarity and actionable recommendations that enable informed decision-making.
+    Given the user's hot take `{find_out}`, explore diverse perspectives
   expected_output: >
-    Clear, actionable insights presented in a structured format with specific recommendations
-    that teams can implement to make informed decisions based on the analyzed data or scenario.
+    Return a JSON object containing a key for each branch perspective, specifically:
+    - consensus_perspective
+    - counterfactual_perspective
+    - nuanced_perspective
+
+    Example Output:
+    [
+      "consensus_perspective": "In single sentence, construct a point of view that describes the widely accepted view or mainstream understanding of the topic.",
+      "counterfactual_perspective": "In single sentence, construct a point of view that challenges the assumptions got from the consensus_perspective by proposing an opposing or alternative perspective.",
+      "nuanced_perspective": "In single sentence, construct a point of view that explores the subtleties, gray areas, or overlooked dimensions of the user's input."    
+    ]
   agent: reasoner
 
 research_consensus_perspective:
@@ -91,6 +98,25 @@ reporting_task:
     Ensure the report covers all main topics with complete information and professional formatting.
     Since you're interacting through a custom frontend interface, format the output to work optimally with your system's rendering capabilities.
   expected_output: >
-    A comprehensive report with main topics organized into full sections, each containing detailed information and analysis.
-    Format according to the frontend's requirements for optimal display and user experience.
+    Return a JSON object with comprehensive report on main topics got from all perspectives organized into full sections, each containing detailed information and analysis alongside your verdict based on facts.
+    Example Output:
+    {
+      "consensus_perspective": {
+        "heading": "Consensus Perspective",
+        "content": "Detailed analysis and information on the consensus perspective."
+      },
+      "counterfactual_perspective": {
+        "heading": "Counterfactual Perspective",
+        "content": "Detailed analysis and information on the counterfactual perspective."
+      },
+      "nuanced_perspective": {
+        "heading": "Nuanced Perspective",
+        "content": "Detailed analysis and information on the nuanced perspective."
+      },
+      "verdict": {
+        "heading": "Verdict",
+        "content": "Your final verdict based on the facts presented in the report."
+      }
+    }
+    Do not include manual line breaks or HTML tags. Keep each section concise for optimal frontend display. The frontend will handle all formatting and layout.
   agent: reporter
